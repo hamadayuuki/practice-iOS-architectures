@@ -13,6 +13,9 @@
 		D4571E1A279327BA003980B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4571E18279327BA003980B2 /* Main.storyboard */; };
 		D4571E1C279327BB003980B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4571E1B279327BB003980B2 /* Assets.xcassets */; };
 		D4571E1F279327BB003980B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4571E1D279327BB003980B2 /* LaunchScreen.storyboard */; };
+		D4571E2E27933050003980B2 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4571E2D27933050003980B2 /* Cell.swift */; };
+		D4571E3027933110003980B2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4571E2F27933110003980B2 /* Model.swift */; };
+		D4571E3227933414003980B2 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4571E3127933414003980B2 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		D4571E1B279327BB003980B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4571E1E279327BB003980B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4571E20279327BB003980B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4571E2D27933050003980B2 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		D4571E2F27933110003980B2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D4571E3127933414003980B2 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,58 @@
 		D4571E11279327BA003980B2 /* MVC-sampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				D4571E2C27932FAB003980B2 /* Data */,
+				D4571E2827932F16003980B2 /* Controller */,
+				D4571E2727932F0E003980B2 /* Model */,
+				D4571E2627932EF5003980B2 /* Storyboard */,
+				D4571E2927932F4A003980B2 /* View */,
 				D4571E12279327BA003980B2 /* AppDelegate.swift */,
 				D4571E14279327BA003980B2 /* SceneDelegate.swift */,
-				D4571E16279327BA003980B2 /* ViewController.swift */,
-				D4571E18279327BA003980B2 /* Main.storyboard */,
 				D4571E1B279327BB003980B2 /* Assets.xcassets */,
-				D4571E1D279327BB003980B2 /* LaunchScreen.storyboard */,
 				D4571E20279327BB003980B2 /* Info.plist */,
 			);
 			path = "MVC-sampleApp";
+			sourceTree = "<group>";
+		};
+		D4571E2627932EF5003980B2 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D4571E18279327BA003980B2 /* Main.storyboard */,
+				D4571E1D279327BB003980B2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		D4571E2727932F0E003980B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4571E2F27933110003980B2 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D4571E2827932F16003980B2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D4571E16279327BA003980B2 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D4571E2927932F4A003980B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4571E2D27933050003980B2 /* Cell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D4571E2C27932FAB003980B2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D4571E3127933414003980B2 /* Data.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4571E17279327BA003980B2 /* ViewController.swift in Sources */,
+				D4571E3027933110003980B2 /* Model.swift in Sources */,
+				D4571E2E27933050003980B2 /* Cell.swift in Sources */,
+				D4571E3227933414003980B2 /* Data.swift in Sources */,
 				D4571E13279327BA003980B2 /* AppDelegate.swift in Sources */,
 				D4571E15279327BA003980B2 /* SceneDelegate.swift in Sources */,
 			);
