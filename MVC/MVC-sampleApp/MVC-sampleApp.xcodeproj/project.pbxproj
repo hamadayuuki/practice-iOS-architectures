@@ -62,11 +62,11 @@
 		D4571E11279327BA003980B2 /* MVC-sampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				D4571E2C27932FAB003980B2 /* Data */,
-				D4571E2827932F16003980B2 /* Controller */,
 				D4571E2727932F0E003980B2 /* Model */,
-				D4571E2627932EF5003980B2 /* Storyboard */,
 				D4571E2927932F4A003980B2 /* View */,
+				D4571E2827932F16003980B2 /* Controller */,
+				D4571E2627932EF5003980B2 /* Storyboard */,
+				D4571E2C27932FAB003980B2 /* Data */,
 				D4571E12279327BA003980B2 /* AppDelegate.swift */,
 				D4571E14279327BA003980B2 /* SceneDelegate.swift */,
 				D4571E1B279327BB003980B2 /* Assets.xcassets */,
