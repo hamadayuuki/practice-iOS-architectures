@@ -13,6 +13,10 @@
 		D4B5C154279D66C3009FFDD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5C152279D66C3009FFDD7 /* Main.storyboard */; };
 		D4B5C156279D66C4009FFDD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B5C155279D66C4009FFDD7 /* Assets.xcassets */; };
 		D4B5C159279D66C4009FFDD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5C157279D66C4009FFDD7 /* LaunchScreen.storyboard */; };
+		D4B5C161279D6796009FFDD7 /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5C160279D6796009FFDD7 /* ArticleListViewController.swift */; };
+		D4B5C163279D6909009FFDD7 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5C162279D6909009FFDD7 /* ArticleDetailViewController.swift */; };
+		D4B5C165279D699B009FFDD7 /* ArticleDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5C164279D699B009FFDD7 /* ArticleDetail.storyboard */; };
+		D4B5C167279D6AB7009FFDD7 /* ArticleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5C166279D6AB7009FFDD7 /* ArticleList.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		D4B5C155279D66C4009FFDD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4B5C158279D66C4009FFDD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4B5C15A279D66C4009FFDD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4B5C160279D6796009FFDD7 /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
+		D4B5C162279D6909009FFDD7 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
+		D4B5C164279D699B009FFDD7 /* ArticleDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetail.storyboard; sourceTree = "<group>"; };
+		D4B5C166279D6AB7009FFDD7 /* ArticleList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleList.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +67,24 @@
 				D4B5C14C279D66C3009FFDD7 /* AppDelegate.swift */,
 				D4B5C14E279D66C3009FFDD7 /* SceneDelegate.swift */,
 				D4B5C150279D66C3009FFDD7 /* ViewController.swift */,
+				D4B5C168279D9F8A009FFDD7 /* View */,
 				D4B5C152279D66C3009FFDD7 /* Main.storyboard */,
 				D4B5C155279D66C4009FFDD7 /* Assets.xcassets */,
 				D4B5C157279D66C4009FFDD7 /* LaunchScreen.storyboard */,
 				D4B5C15A279D66C4009FFDD7 /* Info.plist */,
 			);
 			path = "VIPER-sampleApp";
+			sourceTree = "<group>";
+		};
+		D4B5C168279D9F8A009FFDD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4B5C160279D6796009FFDD7 /* ArticleListViewController.swift */,
+				D4B5C166279D6AB7009FFDD7 /* ArticleList.storyboard */,
+				D4B5C162279D6909009FFDD7 /* ArticleDetailViewController.swift */,
+				D4B5C164279D699B009FFDD7 /* ArticleDetail.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B5C159279D66C4009FFDD7 /* LaunchScreen.storyboard in Resources */,
+				D4B5C167279D6AB7009FFDD7 /* ArticleList.storyboard in Resources */,
 				D4B5C156279D66C4009FFDD7 /* Assets.xcassets in Resources */,
+				D4B5C165279D699B009FFDD7 /* ArticleDetail.storyboard in Resources */,
 				D4B5C154279D66C3009FFDD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +161,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B5C151279D66C3009FFDD7 /* ViewController.swift in Sources */,
+				D4B5C161279D6796009FFDD7 /* ArticleListViewController.swift in Sources */,
 				D4B5C14D279D66C3009FFDD7 /* AppDelegate.swift in Sources */,
 				D4B5C14F279D66C3009FFDD7 /* SceneDelegate.swift in Sources */,
+				D4B5C163279D6909009FFDD7 /* ArticleDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
