@@ -11,6 +11,10 @@ class ArticleListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    // WebAPIのJSONから受け取るデータ型の配列を定義
+    // セルの作成時に使用する
+    private var articleEntities = [ArticleEntity]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,12 +23,12 @@ class ArticleListViewController: UIViewController {
 extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return articleEntities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "記事のタイトル"
+        cell.textLabel?.text = articleEntities[indexPath.row].title
         print(indexPath.row)
         return cell
     }

@@ -20,6 +20,9 @@ class ArticleDetailViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    // ArticleEntity のデータを一つだけ保持させる
+    var articleEntity: ArticleEntity!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,14 +35,13 @@ extension ArticleDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = Row.rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: row.rawValue, for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
         if row == .title {
-            cell.textLabel?.text = "タイトル"
+            cell.textLabel?.text = articleEntity.title
             cell.detailTextLabel?.text = "記事のタイトル"
         }
         if row == .body {
-            cell.textLabel?.text = "記事の本文"
+            cell.textLabel?.text = articleEntity.body
             cell.detailTextLabel?.text = nil
         }
         
