@@ -9,6 +9,9 @@ import UIKit
 
 class ArticleListViewController: UIViewController {
     
+    // プロトコルを通して ArticleListPresenter を呼び出す
+    var presenter: ArticleListPresenterProtocol!
+    
     @IBOutlet weak var tableView: UITableView!
     
     // WebAPIのJSONから受け取るデータ型の配列を定義
@@ -17,6 +20,7 @@ class ArticleListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.didLoad()   // 画面描画時, Presenter から呼び出し
     }
 }
 
@@ -38,3 +42,25 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
 }
+
+// Presenter 作成時に、作成
+// View のプロトコルを準拠する
+extension ArticleListViewController: ArticleListViewProtocol {
+    
+    func showArticles(_ articleEntities: [ArticleEntity]) {
+        self.articleEntities = articleEntities
+        tableView.reloadData()   // 再ロード
+    }
+    
+    func showEmpty() {
+        showArticles([])
+    }
+    
+    func showError(_ error: Error) {
+        // 今回はスキップ
+    }
+    
+}
+
+
+
