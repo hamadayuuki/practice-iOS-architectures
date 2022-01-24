@@ -15,8 +15,35 @@ class GetArticleByIdUseCase: UseCaseProtocol {
     // parameter に Int(記事数の型) を渡す
     // Success(成功時) には ArticleEntity単体 を渡す.一つの記事を取得するため
     func execute(_ parameter: Int, completion: ((Result<ArticleEntity, Error>) -> ())?) {
-        // 返す結果は一つだけ
-        let res = ArticleEntity(id: 1, userId: 1, title: "タイトル1", body: "本文1")
-        completion?(.success(res))
+        
+        // WebAPIからJSON形式でデータを受け取る
+        // 詳細画面に表示するデータ
+        let session = URLSession(configuration: .default)
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts/\(parameter)")!
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion?(.failure(error))
+                }
+                return
+            }
+            guard let data = data, let decoded = try? JSONDecoder().decode(ArticleEntity.self, from: data)
+            else {
+                let error = NSError(
+                    domain: "parse-error",
+                    code: 1,
+                    userInfo: nil
+                )
+                DispatchQueue.main.async {
+                    completion?(.failure(error))
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion?(.success(decoded))
+            }
+        }
+        task.resume()
     }
 }

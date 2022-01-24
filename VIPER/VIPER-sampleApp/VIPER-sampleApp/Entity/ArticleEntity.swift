@@ -7,8 +7,8 @@
 
 import Foundation
 
-// webAPIのJSONから返ってくる値に合わせて定義
-struct ArticleEntity {
+// webAPIのJSONから返ってくる値に合わせて定義, 型は Codable
+struct ArticleEntity: Codable {
     let id: Int
     let userId: Int
     let title: String
