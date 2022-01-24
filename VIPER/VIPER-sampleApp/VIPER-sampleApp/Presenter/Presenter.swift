@@ -55,7 +55,7 @@ extension ArticleListPresenter: ArticleListPresenterProtocol {
     }
     
     func didSelect(articleEntitiy: ArticleEntity) {
-        <#code#>
+        print("didSelect")
     }
     
 }

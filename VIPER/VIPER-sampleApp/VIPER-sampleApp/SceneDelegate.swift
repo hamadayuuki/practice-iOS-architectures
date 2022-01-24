@@ -26,6 +26,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError()
         }
         
+        // View に Presenter を渡す
+        articleListViewController.presenter = ArticleListPresenter(view: articleListViewController)
+        
         let navigation = UINavigationController(rootViewController: articleListViewController)
         window?.rootViewController = navigation
     }
