@@ -41,7 +41,7 @@ extension ArticleDetailPresenter: ArticleDetailPresenterProtocol {
         // Interactor への要求, データを受け取る
         // ! Presenter で GetArticlesArrayUseCase() を呼び出している = 蜜結合
         //   → GetArticlesArrayUseCase() を di.getArticlesArrayUseCase に変更 = 疎結合
-        di.getArticlesArrayUseCase.execute(articleEntity.id){ [weak self] result in
+        di.getArticleByIdUseCase.execute(articleEntity.id){ [weak self] result in
             guard let self = self else { return }
             
             // View を作成, Interactor からのデータによって条件分岐
