@@ -23,8 +23,12 @@ class ArticleDetailViewController: UIViewController {
     // ArticleEntity のデータを一つだけ保持させる
     var articleEntity: ArticleEntity!
     
+    // Presenter
+    var presenter: ArticleDetailPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.didLoad(articleEntity: articleEntity)
     }
 }
 
@@ -46,6 +50,19 @@ extension ArticleDetailViewController: UITableViewDelegate, UITableViewDataSourc
         }
         
         return cell
+    }
+    
+    
+}
+
+extension ArticleDetailViewController: ArticleDetailViewProtocol {
+    func showArticle(_ articleEntity: ArticleEntity) {
+        self.articleEntity = articleEntity
+        tableView.reloadData()
+    }
+    
+    func showError(_ erro: Error) {
+        // 今回はスキップ
     }
     
     

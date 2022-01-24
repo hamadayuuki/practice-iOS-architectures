@@ -39,6 +39,10 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 一覧から選択が行われたら画面遷移を行う
+        // Presenter を使用して画面遷移
+        presenter.didSelect(articleEntity: articleEntities[indexPath.row])
     }
     
 }
