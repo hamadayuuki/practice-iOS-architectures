@@ -90,3 +90,5 @@ fastlane/test_output
 iOSInjectionProject/
 
 .DS_Store
+
+MVVM/RxSwift+Firebase/RxSwift+Firebase/GoogleService-Info.plist
