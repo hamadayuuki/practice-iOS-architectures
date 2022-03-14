@@ -13,6 +13,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .yellow
+        
+        let fireStoreModel = FireStoreModel()
+        fireStoreModel.featchFireStore()
     }
 
 
