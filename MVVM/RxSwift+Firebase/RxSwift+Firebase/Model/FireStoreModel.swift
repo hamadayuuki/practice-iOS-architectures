@@ -16,17 +16,22 @@ class FireStoreModel {
             
             // FireStore からデータの取得
             var database = Firestore.firestore()
-            database.collection("count").getDocuments() { (documents, err) in
+            database.collection("count").addSnapshotListener { (snapshots, err) in   // addSnapshotListener: FireSoterからリアルタイムでデータを取得
                 if let err = err {
                      print("Error getting documents: \(err)")
                  } else {
-                     for document in documents!.documents {
-                         print("\(document.documentID) => \(document.data())")
-                         let num = document.data()["num"] as? Int ?? 0
-                         observer.onNext(num)   // イベントを通知
+                     if let documents = snapshots?.documents {
+                         for document in documents {
+                             let data = document.data()
+                             //アップデートされた際に行いたい処理を書く
+                             let num = data["num"] as? Int ?? 0
+                             print(num)
+                             observer.onNext(num)   // イベントを通知
+                         }
                      }
                  }
-            }
+             }
+            
             return Disposables.create()   // 解放
         }// return Observable.create
         
