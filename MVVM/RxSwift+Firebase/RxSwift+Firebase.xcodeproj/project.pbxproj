@@ -12,7 +12,6 @@
 		D4C879B327DF1FB100A8365D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879B227DF1FB100A8365D /* ViewController.swift */; };
 		D4C879B827DF1FB200A8365D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C879B727DF1FB200A8365D /* Assets.xcassets */; };
 		D4C879BB27DF1FB200A8365D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C879B927DF1FB200A8365D /* LaunchScreen.storyboard */; };
-		D4C879C627DF2FC900A8365D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C879C527DF2FC900A8365D /* GoogleService-Info.plist */; };
 		D4C879C927DF302F00A8365D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D4C879C827DF302F00A8365D /* FirebaseAnalytics */; };
 		D4C879CB27DF302F00A8365D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D4C879CA27DF302F00A8365D /* FirebaseAuth */; };
 		D4C879CD27DF302F00A8365D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D4C879CC27DF302F00A8365D /* FirebaseDatabase */; };
@@ -25,6 +24,10 @@
 		D4C879DC27DF376500A8365D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D4C879DB27DF376500A8365D /* RxSwift */; };
 		D4C879DE27DF3C7E00A8365D /* FireStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879DD27DF3C7E00A8365D /* FireStoreViewModel.swift */; };
 		D4C879E127DF40A500A8365D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D4C879E027DF40A500A8365D /* SnapKit */; };
+		D4C879E327DF729E00A8365D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879E227DF729E00A8365D /* RegisterViewController.swift */; };
+		D4C879E527DF72E200A8365D /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879E427DF72E200A8365D /* RegisterTextField.swift */; };
+		D4C879E727DF732C00A8365D /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879E627DF732C00A8365D /* RegisterButton.swift */; };
+		D4C879E927DF73ED00A8365D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C879E827DF73ED00A8365D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +38,12 @@
 		D4C879B727DF1FB200A8365D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4C879BA27DF1FB200A8365D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4C879BC27DF1FB200A8365D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4C879C527DF2FC900A8365D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4C879D427DF36BC00A8365D /* FireStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreModel.swift; sourceTree = "<group>"; };
 		D4C879DD27DF3C7E00A8365D /* FireStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreViewModel.swift; sourceTree = "<group>"; };
+		D4C879E227DF729E00A8365D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D4C879E427DF72E200A8365D /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
+		D4C879E627DF732C00A8365D /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
+		D4C879E827DF73ED00A8365D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +94,7 @@
 				D4C879B727DF1FB200A8365D /* Assets.xcassets */,
 				D4C879B927DF1FB200A8365D /* LaunchScreen.storyboard */,
 				D4C879BC27DF1FB200A8365D /* Info.plist */,
-				D4C879C527DF2FC900A8365D /* GoogleService-Info.plist */,
+				D4C879E827DF73ED00A8365D /* GoogleService-Info.plist */,
 			);
 			path = "RxSwift+Firebase";
 			sourceTree = "<group>";
@@ -105,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C879B227DF1FB100A8365D /* ViewController.swift */,
+				D4C879EA27DF741200A8365D /* Register */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +122,16 @@
 				D4C879DD27DF3C7E00A8365D /* FireStoreViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D4C879EA27DF741200A8365D /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				D4C879E427DF72E200A8365D /* RegisterTextField.swift */,
+				D4C879E627DF732C00A8365D /* RegisterButton.swift */,
+				D4C879E227DF729E00A8365D /* RegisterViewController.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +209,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C879C627DF2FC900A8365D /* GoogleService-Info.plist in Resources */,
 				D4C879BB27DF1FB200A8365D /* LaunchScreen.storyboard in Resources */,
 				D4C879B827DF1FB200A8365D /* Assets.xcassets in Resources */,
+				D4C879E927DF73ED00A8365D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,9 +222,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C879E727DF732C00A8365D /* RegisterButton.swift in Sources */,
 				D4C879DE27DF3C7E00A8365D /* FireStoreViewModel.swift in Sources */,
 				D4C879B327DF1FB100A8365D /* ViewController.swift in Sources */,
 				D4C879AF27DF1FB100A8365D /* AppDelegate.swift in Sources */,
+				D4C879E527DF72E200A8365D /* RegisterTextField.swift in Sources */,
+				D4C879E327DF729E00A8365D /* RegisterViewController.swift in Sources */,
 				D4C879B127DF1FB100A8365D /* SceneDelegate.swift in Sources */,
 				D4C879D527DF36BC00A8365D /* FireStoreModel.swift in Sources */,
 			);
