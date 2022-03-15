@@ -28,6 +28,8 @@
 		D4C879E527DF72E200A8365D /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879E427DF72E200A8365D /* RegisterTextField.swift */; };
 		D4C879E727DF732C00A8365D /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879E627DF732C00A8365D /* RegisterButton.swift */; };
 		D4C879E927DF73ED00A8365D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C879E827DF73ED00A8365D /* GoogleService-Info.plist */; };
+		D4C879EE27DF749500A8365D /* FireAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879ED27DF749500A8365D /* FireAuthModel.swift */; };
+		D4C879F027DF788300A8365D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879EF27DF788300A8365D /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		D4C879E427DF72E200A8365D /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		D4C879E627DF732C00A8365D /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 		D4C879E827DF73ED00A8365D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4C879ED27DF749500A8365D /* FireAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthModel.swift; sourceTree = "<group>"; };
+		D4C879EF27DF788300A8365D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C879D427DF36BC00A8365D /* FireStoreModel.swift */,
+				D4C879ED27DF749500A8365D /* FireAuthModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C879DD27DF3C7E00A8365D /* FireStoreViewModel.swift */,
+				D4C879EF27DF788300A8365D /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,9 +133,9 @@
 		D4C879EA27DF741200A8365D /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				D4C879E227DF729E00A8365D /* RegisterViewController.swift */,
 				D4C879E427DF72E200A8365D /* RegisterTextField.swift */,
 				D4C879E627DF732C00A8365D /* RegisterButton.swift */,
-				D4C879E227DF729E00A8365D /* RegisterViewController.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -223,6 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C879E727DF732C00A8365D /* RegisterButton.swift in Sources */,
+				D4C879F027DF788300A8365D /* RegisterViewModel.swift in Sources */,
+				D4C879EE27DF749500A8365D /* FireAuthModel.swift in Sources */,
 				D4C879DE27DF3C7E00A8365D /* FireStoreViewModel.swift in Sources */,
 				D4C879B327DF1FB100A8365D /* ViewController.swift in Sources */,
 				D4C879AF27DF1FB100A8365D /* AppDelegate.swift in Sources */,
