@@ -75,12 +75,15 @@ class RegisterViewModel {
     let isSignUp: Driver<Bool>
     let canSignUp: Driver<Bool>
     
+    let disposeBag = DisposeBag()   // ここで初期化しないと 処理が走らない場合あり
+    
     // input: V から通知を受け取れるよう、初期化
     init(input: (
         email: Driver<String>,
         password: Driver<String>,
         passwordConfirm: Driver<String>,
-        signUpTaps: Signal<Void>   // tap を受け取るときは Signal
+        signUpTaps: Signal<Void>,   // tap を受け取るときは Signal
+        buttonTaptest: Driver<Void>
     ), signUpAPI: FireAuthModel) {
         
         // M とのつながり
@@ -100,10 +103,11 @@ class RegisterViewModel {
                 registerModel.ValidatePasswordConfirm(password: password, passwordConfirm: passwordConfirm)
             }
         
-        input.signUpTaps
-            .map { _ in
-                print("登録ボタンが押されました VM に通知が届きました")
-            }
+        input.buttonTaptest
+            .drive(onNext: { _ in
+                print("登録ボタンが押された, VM")
+            })
+            .disposed(by: disposeBag)
         
         // アカウント作成
         let emailAndPasswordValidation = Driver.combineLatest(input.email, input.password) { (email: $0, password: $1) }

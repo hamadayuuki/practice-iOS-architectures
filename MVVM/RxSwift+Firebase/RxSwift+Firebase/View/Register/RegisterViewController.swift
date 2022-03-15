@@ -25,6 +25,7 @@ class RegisterViewController: UIViewController {
     var passwordConfirmTextField: RegisterTextField!
     var validatePasswordConfirmLabel: RegisterLabel!
     var registerButton: RegisterButton!
+    var registerTestButton: RegisterButton!
     
     let disposeBag = DisposeBag()
     var registerViewModel: RegisterViewModel!
@@ -56,6 +57,7 @@ class RegisterViewController: UIViewController {
         validatePasswordConfirmLabel = RegisterLabel(text: "", size: 10)
         
         registerButton = RegisterButton()
+        registerTestButton = RegisterButton()
         
         let nameVerticalView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, validateNameLabel])
         nameVerticalView.axis = .vertical
@@ -70,7 +72,7 @@ class RegisterViewController: UIViewController {
         passwordConfirmVerticalView.axis = .vertical
         passwordConfirmVerticalView.spacing = 5
         
-        let registerVerticalView = UIStackView(arrangedSubviews: [nameVerticalView, emailVerticalView, passwordVerticalView, passwordConfirmVerticalView])
+        let registerVerticalView = UIStackView(arrangedSubviews: [registerTestButton, nameVerticalView, emailVerticalView, passwordVerticalView, passwordConfirmVerticalView])
         registerVerticalView.axis = .vertical
         registerVerticalView.distribution = .fillEqually   // 要素の大きさを均等にする
         registerVerticalView.spacing = 20
@@ -130,14 +132,16 @@ class RegisterViewController: UIViewController {
 //            }
 //            .disposed(by: disposeBag)
         
-        // VM とのつながり, input にイベントを送る(テキストの変更やボタンのタップ等)
+        // VM とのつながり, input にイベントを送る(テキストの変更やボタンのタップ等), 送るだけ
         registerViewModel = RegisterViewModel(input: (
             email: emailTextField.rx.text.orEmpty.asDriver(),
             password: passwordTextField.rx.text.orEmpty.asDriver(),
             passwordConfirm: passwordConfirmTextField.rx.text.orEmpty.asDriver(),
-            signUpTaps: registerButton.rx.tap.asSignal()
+            signUpTaps: registerButton.rx.tap.asSignal(),
+            buttonTaptest: registerTestButton.rx.tap.asDriver()
         ), signUpAPI: FireAuthModel())
         
+        // 受け取る, データの値を変更
         registerViewModel.emailValidation
             .drive(validateEmailLabel.rx.validationResult)   // VM で 戻り値を ValidationResult にしているため,受け取りもvalidationResultにする
             .disposed(by: disposeBag)
