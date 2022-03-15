@@ -13,16 +13,21 @@ class RegisterTextField: UITextField {
         super.init(frame: .zero)
         
         setupLayout()
-        self.frame = CGRect(x: 0, y: 0, width: 300, height: 70)   // 下線のため
-        self.placeholder = placeholder
-        self.font = .systemFont(ofSize: 30)
-        setUnderLine(color: .orange, thickness: 0.5)
     }
     
     private func setupLayout() {
+        let width = 270
+        let height = 50
+        self.frame = CGRect(x: 0, y: 0, width: width, height: height)   // 下線のため
+        self.placeholder = placeholder
+        self.font = .systemFont(ofSize: 20)
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 3.0
+//        setUnderLine(color: .orange, thickness: 0.5)
+        
         self.snp.makeConstraints { make -> Void in
-            make.width.equalTo(300)
-            make.height.equalTo(70)
+            make.width.equalTo(width)
+            make.height.equalTo(height)
         }
     }
     

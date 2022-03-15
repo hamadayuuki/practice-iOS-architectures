@@ -14,8 +14,7 @@ class RegisterValidationModel {
     //                                   ↓ データの状態(enum)
     func ValidateEmail(email: String) -> ValidationResult {
         if (email.count == 0) { return .empty(message: "") }
-        if !(email.contains("@")) { return .failed(message: "メールアドレスの形式が間違えてます") }
-        return .ok(message: "OK")
+        return .ok(message: "")
     }
     
     func ValidatePassword(password: String) -> ValidationResult {
@@ -25,7 +24,15 @@ class RegisterValidationModel {
     }
     
     func ValidatePasswordConfirm(password: String, passwordConfirm: String) -> ValidationResult {
-        if !(password == passwordConfirm) { return .failed(message: "確認用パスワードが間違えています") }
-        return .ok(message: "OK")
+        if (password.count == 0) { return .empty(message: "") }
+        if (password == passwordConfirm) { return .ok(message: "OK") }
+        return .failed(message: "")
+    }
+    
+    func ValidateCanRegister(emailIsValid: Bool, passwordIsValid: Bool, passwordConfirmIsValid: Bool) -> Bool {
+        if (emailIsValid && passwordIsValid && passwordConfirmIsValid) {
+            return true
+        }
+        return false
     }
 }

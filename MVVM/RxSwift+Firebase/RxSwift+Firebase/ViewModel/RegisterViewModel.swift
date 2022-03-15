@@ -69,7 +69,7 @@ import RxCocoa
 
 class RegisterViewModel {
     let emailValidation: Driver<ValidationResult>
-    let passwordlValidation: Driver<ValidationResult>
+    let passwordValidation: Driver<ValidationResult>
     let passwordConfirmValidation: Driver<ValidationResult>
     
     let isSignUp: Driver<Bool>
@@ -80,24 +80,29 @@ class RegisterViewModel {
         email: Driver<String>,
         password: Driver<String>,
         passwordConfirm: Driver<String>,
-        signUpTaps: Driver<Void>
+        signUpTaps: Signal<Void>   // tap を受け取るときは Signal
     ), signUpAPI: FireAuthModel) {
         
         // M とのつながり
-        let registerViewModel = RegisterValidationModel()
+        let registerModel = RegisterValidationModel()
         
         // V からの通知(データも?)を受け取り M に処理を任せる
         emailValidation = input.email
             .map { email in
-                registerViewModel.ValidateEmail(email: email)
+                registerModel.ValidateEmail(email: email)
             }
-        passwordlValidation = input.password
+        passwordValidation = input.password
             .map { password in
-                registerViewModel.ValidatePassword(password: password)
+                registerModel.ValidatePassword(password: password)
             }
         passwordConfirmValidation = Driver.combineLatest(input.password, input.passwordConfirm)
             .map { (password, passwordConfirm) in
-                registerViewModel.ValidatePasswordConfirm(password: password, passwordConfirm: passwordConfirm)
+                registerModel.ValidatePasswordConfirm(password: password, passwordConfirm: passwordConfirm)
+            }
+        
+        input.signUpTaps
+            .map { _ in
+                print("登録ボタンが押されました VM に通知が届きました")
             }
         
         // アカウント作成
@@ -117,8 +122,10 @@ class RegisterViewModel {
             .asDriver(onErrorJustReturn: false )
         
         // アカウント作成可能か
-        canSignUp = Driver.combineLatest(emailValidation, passwordlValidation, passwordConfirmValidation, isSignUp){ (email, password, passwordConfirm, signUp) in
-            email.isValid && password.isValid && passwordConfirm.isValid && !signUp
+        // ! ここに isSignUp をいれないと、アカウント登録が呼ばれない → 実装を変更する必要あり
+        canSignUp = Driver.combineLatest(emailValidation, passwordValidation, passwordConfirmValidation, isSignUp){ (email, password, passwordConfirm, isSignUp) in
+            registerModel.ValidateCanRegister(emailIsValid: email.isValid, passwordIsValid: password.isValid, passwordConfirmIsValid: passwordConfirm.isValid)
         }
+        .distinctUntilChanged()
     }
 }

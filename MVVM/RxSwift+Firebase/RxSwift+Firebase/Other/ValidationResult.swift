@@ -5,7 +5,9 @@
 //  Created by 濵田　悠樹 on 2022/03/15.
 //
 
-// データの状態
+import UIKit
+
+// データの状態(テキスト と 文字色)
 enum ValidationResult {
     case ok(message: String)
     case empty(message: String)
@@ -27,6 +29,19 @@ enum ValidationResult {
             return true
         default:
             return false
+        }
+    }
+    
+    var testColor: UIColor {
+        switch self {
+        case .ok:
+            return UIColor.green
+        case .empty:
+            return UIColor.black
+        case .validating:
+            return UIColor.black
+        case .failed:
+            return UIColor.red
         }
     }
 }
