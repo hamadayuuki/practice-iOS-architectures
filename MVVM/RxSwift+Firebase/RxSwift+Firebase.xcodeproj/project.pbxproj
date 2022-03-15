@@ -30,6 +30,8 @@
 		D4C879E927DF73ED00A8365D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C879E827DF73ED00A8365D /* GoogleService-Info.plist */; };
 		D4C879EE27DF749500A8365D /* FireAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879ED27DF749500A8365D /* FireAuthModel.swift */; };
 		D4C879F027DF788300A8365D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879EF27DF788300A8365D /* RegisterViewModel.swift */; };
+		D4C879F427E0614D00A8365D /* RegisterValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879F327E0614D00A8365D /* RegisterValidationModel.swift */; };
+		D4C879F727E062DF00A8365D /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C879F627E062DF00A8365D /* ValidationResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		D4C879E827DF73ED00A8365D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4C879ED27DF749500A8365D /* FireAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthModel.swift; sourceTree = "<group>"; };
 		D4C879EF27DF788300A8365D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		D4C879F327E0614D00A8365D /* RegisterValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterValidationModel.swift; sourceTree = "<group>"; };
+		D4C879F627E062DF00A8365D /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			children = (
 				D4C879AE27DF1FB100A8365D /* AppDelegate.swift */,
 				D4C879B027DF1FB100A8365D /* SceneDelegate.swift */,
+				D4C879F527E062CC00A8365D /* Other */,
 				D4C879C227DF21EA00A8365D /* Model */,
 				D4C879C327DF21F100A8365D /* View */,
 				D4C879C427DF21FB00A8365D /* ViewModel */,
@@ -108,6 +113,7 @@
 			children = (
 				D4C879D427DF36BC00A8365D /* FireStoreModel.swift */,
 				D4C879ED27DF749500A8365D /* FireAuthModel.swift */,
+				D4C879F327E0614D00A8365D /* RegisterValidationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +144,14 @@
 				D4C879E627DF732C00A8365D /* RegisterButton.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		D4C879F527E062CC00A8365D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D4C879F627E062DF00A8365D /* ValidationResult.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C879E727DF732C00A8365D /* RegisterButton.swift in Sources */,
+				D4C879F427E0614D00A8365D /* RegisterValidationModel.swift in Sources */,
 				D4C879F027DF788300A8365D /* RegisterViewModel.swift in Sources */,
 				D4C879EE27DF749500A8365D /* FireAuthModel.swift in Sources */,
 				D4C879DE27DF3C7E00A8365D /* FireStoreViewModel.swift in Sources */,
@@ -238,6 +253,7 @@
 				D4C879E327DF729E00A8365D /* RegisterViewController.swift in Sources */,
 				D4C879B127DF1FB100A8365D /* SceneDelegate.swift in Sources */,
 				D4C879D527DF36BC00A8365D /* FireStoreModel.swift in Sources */,
+				D4C879F727E062DF00A8365D /* ValidationResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

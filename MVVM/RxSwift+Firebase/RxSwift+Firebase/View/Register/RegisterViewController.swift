@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController {
     let registerButton = RegisterButton()
     
     let disposeBag = DisposeBag()
-    let registerViewModel = RegisterViewModel()
+    var registerViewModel: RegisterViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,34 +51,42 @@ class RegisterViewController: UIViewController {
     
     private func setupBinding() {
         
-        emailTextField.rx.text   // 入力を受け取る
-            .asDriver()
-            .drive { [weak self] text in
-                self?.registerViewModel.mailTextInput.onNext(text ?? "")   // VM に通知
-            }
-            .disposed(by: disposeBag)
+//        emailTextField.rx.text   // 入力を受け取る
+//            .asDriver()
+//            .drive { [weak self] text in
+//                self?.registerViewModel.mailTextInput.onNext(text ?? "")   // VM に通知
+//            }
+//            .disposed(by: disposeBag)
+//
+//        passwordTextField.rx.text   // 入力を受け取る
+//            .asDriver()
+//            .drive { [weak self] text in
+//                self?.registerViewModel.passwordTextInput.onNext(text ?? "")   // VM に通知
+//            }
+//            .disposed(by: disposeBag)
+//
+//        registerButton.rx.tap
+//            .asDriver()
+//            .drive { [weak self] _ in
+//                print("登録ボタンが押された")
+//                // FireAuth への登録処理
+//            }
+//            .disposed(by: disposeBag)
+//
+//        registerViewModel.resultRegisterDriver
+//            .drive { result in
+//                self.registerButton.isEnabled = result   // ボタンの反応
+//                self.registerButton.backgroundColor = result ? .orange : .blue
+//            }
+//            .disposed(by: disposeBag)
         
-        passwordTextField.rx.text   // 入力を受け取る
-            .asDriver()
-            .drive { [weak self] text in
-                self?.registerViewModel.passwordTextInput.onNext(text ?? "")   // VM に通知
-            }
-            .disposed(by: disposeBag)
-        
-        registerButton.rx.tap
-            .asDriver()
-            .drive { [weak self] _ in
-                print("登録ボタンが押された")
-                // FireAuth への登録処理
-            }
-            .disposed(by: disposeBag)
-        
-        registerViewModel.resultRegisterDriver
-            .drive { result in
-                self.registerButton.isEnabled = result   // ボタンの反応
-                self.registerButton.backgroundColor = result ? .orange : .blue
-            }
-            .disposed(by: disposeBag)
+        // VM とのつながり
+        registerViewModel = RegisterViewModel(input: (
+            email: emailTextField.rx.text.orEmpty.asDriver(),
+            password: passwordTextField.rx.text.orEmpty.asDriver(),
+            passwordConfirm: passwordTextField.rx.text.orEmpty.asDriver(),
+            signUpTaps: registerButton.rx.tap.asDriver()
+        ), signUpAPI: FireAuthModel())
     }
 }
 
