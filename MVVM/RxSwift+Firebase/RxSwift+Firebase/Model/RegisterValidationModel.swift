@@ -24,12 +24,16 @@ class RegisterValidationModel {
     }
     
     func ValidatePasswordConfirm(password: String, passwordConfirm: String) -> ValidationResult {
-        if (password.count == 0) { return .empty(message: "") }
+        if (passwordConfirm.count == 0) { return .empty(message: "") }
+        if (passwordConfirm.count < 8) { return .failed(message: "") }
         if (password == passwordConfirm) { return .ok(message: "OK") }
         return .failed(message: "")
     }
     
     func ValidateCanRegister(emailIsValid: Bool, passwordIsValid: Bool, passwordConfirmIsValid: Bool) -> Bool {
+        print("emailIsValid: ", emailIsValid)
+        print("passwordIsValid: ", passwordIsValid)
+        print("passwordConfirmIsValid: ", passwordConfirmIsValid)
         if (emailIsValid && passwordIsValid && passwordConfirmIsValid) {
             return true
         }

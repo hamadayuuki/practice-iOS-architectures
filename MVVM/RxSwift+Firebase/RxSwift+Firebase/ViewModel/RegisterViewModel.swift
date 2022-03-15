@@ -89,7 +89,7 @@ class RegisterViewModel {
         // M とのつながり
         let registerModel = RegisterValidationModel()
         
-        // V からの通知(データも?)を受け取り M に処理を任せる
+        // V からの通知(データも?)を受け取り M に処理を任せる, V から呼ばれることでデータ送信(VM→V)を行える
         emailValidation = input.email
             .map { email in
                 registerModel.ValidateEmail(email: email)
@@ -127,7 +127,7 @@ class RegisterViewModel {
         
         // アカウント作成可能か
         // ! ここに isSignUp をいれないと、アカウント登録が呼ばれない → 実装を変更する必要あり
-        canSignUp = Driver.combineLatest(emailValidation, passwordValidation, passwordConfirmValidation, isSignUp){ (email, password, passwordConfirm, isSignUp) in
+        canSignUp = Driver.combineLatest(emailValidation, passwordValidation, passwordConfirmValidation){ (email, password, passwordConfirm) in
             registerModel.ValidateCanRegister(emailIsValid: email.isValid, passwordIsValid: password.isValid, passwordConfirmIsValid: passwordConfirm.isValid)
         }
         .distinctUntilChanged()

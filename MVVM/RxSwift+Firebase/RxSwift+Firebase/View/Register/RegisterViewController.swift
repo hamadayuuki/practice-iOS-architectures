@@ -132,7 +132,7 @@ class RegisterViewController: UIViewController {
 //            }
 //            .disposed(by: disposeBag)
         
-        // VM とのつながり, input にイベントを送る(テキストの変更やボタンのタップ等), 送るだけ
+        // VM とのつながり, input にイベントを送る(テキストの変更やボタンのタップ等), 送るだけ, 登録のようなイメージ
         registerViewModel = RegisterViewModel(input: (
             email: emailTextField.rx.text.orEmpty.asDriver(),
             password: passwordTextField.rx.text.orEmpty.asDriver(),
@@ -141,7 +141,7 @@ class RegisterViewController: UIViewController {
             buttonTaptest: registerTestButton.rx.tap.asDriver()
         ), signUpAPI: FireAuthModel())
         
-        // 受け取る, データの値を変更
+        // MV からデータ受け取る, データの値を変更
         registerViewModel.emailValidation
             .drive(validateEmailLabel.rx.validationResult)   // VM で 戻り値を ValidationResult にしているため,受け取りもvalidationResultにする
             .disposed(by: disposeBag)
