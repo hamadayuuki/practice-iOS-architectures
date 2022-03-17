@@ -35,6 +35,7 @@
 		D4C87A0727E0AF3300A8365D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D4C87A0627E0AF3300A8365D /* FirebaseMessaging */; };
 		D4C87A0927E0AF3300A8365D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D4C87A0827E0AF3300A8365D /* FirebaseStorage */; };
 		D4C87A0E27E3224200A8365D /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D4C87A0D27E3224200A8365D /* PKHUD */; };
+		D4C87A1027E32B3300A8365D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C87A0F27E32B3300A8365D /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		D4C879F327E0614D00A8365D /* RegisterValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterValidationModel.swift; sourceTree = "<group>"; };
 		D4C879F627E062DF00A8365D /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		D4C879F827E0956A00A8365D /* RegisterLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLable.swift; sourceTree = "<group>"; };
+		D4C87A0F27E32B3300A8365D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			children = (
 				D4C879B227DF1FB100A8365D /* ViewController.swift */,
 				D4C879EA27DF741200A8365D /* Register */,
+				D4C87A1127E32CDA00A8365D /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +162,14 @@
 				D4C879F627E062DF00A8365D /* ValidationResult.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		D4C87A1127E32CDA00A8365D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D4C87A0F27E32B3300A8365D /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 				D4C879F027DF788300A8365D /* RegisterViewModel.swift in Sources */,
 				D4C879EE27DF749500A8365D /* FireAuthModel.swift in Sources */,
 				D4C879DE27DF3C7E00A8365D /* FireStoreViewModel.swift in Sources */,
+				D4C87A1027E32B3300A8365D /* HomeViewController.swift in Sources */,
 				D4C879B327DF1FB100A8365D /* ViewController.swift in Sources */,
 				D4C879AF27DF1FB100A8365D /* AppDelegate.swift in Sources */,
 				D4C879E527DF72E200A8365D /* RegisterTextField.swift in Sources */,

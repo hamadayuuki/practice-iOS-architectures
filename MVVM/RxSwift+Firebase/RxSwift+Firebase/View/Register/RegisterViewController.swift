@@ -139,6 +139,9 @@ class RegisterViewController: UIViewController {
                 print("result: ", result)
                 if self.isProgressView {
                     HUD.hide()
+                    // 画面遷移
+                    let homeViewController = HomeViewController()
+                    self.present(homeViewController, animated: true, completion: nil)
                 }
             }
             .disposed(by: disposeBag)
