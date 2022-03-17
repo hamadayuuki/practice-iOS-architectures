@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import PKHUD
 
 class RegisterViewController: UIViewController {
     
@@ -25,10 +26,11 @@ class RegisterViewController: UIViewController {
     var passwordConfirmTextField: RegisterTextField!
     var validatePasswordConfirmLabel: RegisterLabel!
     var registerButton: RegisterButton!
-    var registerTestButton: RegisterButton!
     
     let disposeBag = DisposeBag()
     var registerViewModel: RegisterViewModel!
+    
+    var isProgressView: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +59,6 @@ class RegisterViewController: UIViewController {
         validatePasswordConfirmLabel = RegisterLabel(text: "", size: 10)
         
         registerButton = RegisterButton()
-        registerTestButton = RegisterButton()
         
         let nameVerticalView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, validateNameLabel])
         nameVerticalView.axis = .vertical
@@ -72,7 +73,7 @@ class RegisterViewController: UIViewController {
         passwordConfirmVerticalView.axis = .vertical
         passwordConfirmVerticalView.spacing = 5
         
-        let registerVerticalView = UIStackView(arrangedSubviews: [registerTestButton, nameVerticalView, emailVerticalView, passwordVerticalView, passwordConfirmVerticalView])
+        let registerVerticalView = UIStackView(arrangedSubviews: [nameVerticalView, emailVerticalView, passwordVerticalView, passwordConfirmVerticalView])
         registerVerticalView.axis = .vertical
         registerVerticalView.distribution = .fillEqually   // 要素の大きさを均等にする
         registerVerticalView.spacing = 20
@@ -136,6 +137,16 @@ class RegisterViewController: UIViewController {
         registerViewModel.isSignUp
             .drive { result in
                 print("result: ", result)
+                if self.isProgressView {
+                    HUD.hide()
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        registerButton.rx.tap
+            .subscribe { _ in
+                HUD.show(.progress)
+                self.isProgressView = true
             }
             .disposed(by: disposeBag)
         

@@ -18,11 +18,16 @@ class RegisterTextField: UITextField {
     private func setupLayout() {
         let width = 270
         let height = 50
+        let paddingFrame = CGRect(x:0, y:0, width: 5, height: height)
         self.frame = CGRect(x: 0, y: 0, width: width, height: height)   // 下線のため
         self.placeholder = placeholder
         self.font = .systemFont(ofSize: 20)
         self.layer.borderColor = UIColor.gray.cgColor
         self.layer.borderWidth = 3.0
+        self.leftView = UIView(frame: paddingFrame)   // 左に余白を追加
+        self.leftViewMode = .always
+        self.rightView = UIView(frame: paddingFrame)   // 右に余白を追加
+        self.rightViewMode = .always
 //        setUnderLine(color: .orange, thickness: 0.5)
         
         self.snp.makeConstraints { make -> Void in
