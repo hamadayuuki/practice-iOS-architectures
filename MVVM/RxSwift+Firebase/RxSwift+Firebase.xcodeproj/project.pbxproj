@@ -34,6 +34,7 @@
 		D4C87A0527E0AF3300A8365D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = D4C87A0427E0AF3300A8365D /* FirebaseFunctions */; };
 		D4C87A0727E0AF3300A8365D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D4C87A0627E0AF3300A8365D /* FirebaseMessaging */; };
 		D4C87A0927E0AF3300A8365D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D4C87A0827E0AF3300A8365D /* FirebaseStorage */; };
+		D4C87A0E27E3224200A8365D /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D4C87A0D27E3224200A8365D /* PKHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 				D4C879FD27E0AF3300A8365D /* FirebaseAnalytics in Frameworks */,
 				D4C87A0327E0AF3300A8365D /* FirebaseFirestore in Frameworks */,
 				D4C87A0927E0AF3300A8365D /* FirebaseStorage in Frameworks */,
+				D4C87A0E27E3224200A8365D /* PKHUD in Frameworks */,
 				D4C87A0127E0AF3300A8365D /* FirebaseDatabase in Frameworks */,
 				D4C879E127DF40A500A8365D /* SnapKit in Frameworks */,
 			);
@@ -187,6 +189,7 @@
 				D4C87A0427E0AF3300A8365D /* FirebaseFunctions */,
 				D4C87A0627E0AF3300A8365D /* FirebaseMessaging */,
 				D4C87A0827E0AF3300A8365D /* FirebaseStorage */,
+				D4C87A0D27E3224200A8365D /* PKHUD */,
 			);
 			productName = "RxSwift+Firebase";
 			productReference = D4C879AB27DF1FB100A8365D /* RxSwift+Firebase.app */;
@@ -220,6 +223,7 @@
 				D4C879D627DF376500A8365D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				D4C879DF27DF40A500A8365D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D4C879FB27E0AF3300A8365D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D4C87A0C27E3224100A8365D /* XCRemoteSwiftPackageReference "PKHUD" */,
 			);
 			productRefGroup = D4C879AC27DF1FB100A8365D /* Products */;
 			projectDirPath = "";
@@ -496,6 +500,14 @@
 				kind = branch;
 			};
 		};
+		D4C87A0C27E3224100A8365D /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -553,6 +565,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4C879FB27E0AF3300A8365D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		D4C87A0D27E3224200A8365D /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4C87A0C27E3224100A8365D /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

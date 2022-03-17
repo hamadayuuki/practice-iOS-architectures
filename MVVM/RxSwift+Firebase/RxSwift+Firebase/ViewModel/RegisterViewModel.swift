@@ -82,8 +82,7 @@ class RegisterViewModel {
         email: Driver<String>,
         password: Driver<String>,
         passwordConfirm: Driver<String>,
-        signUpTaps: Signal<Void>,   // tap を受け取るときは Signal
-        buttonTaptest: Driver<Void>
+        signUpTaps: Signal<Void>   // tap を受け取るときは Signal
     ), signUpAPI: FireAuthModel) {
         
         // M とのつながり
@@ -103,26 +102,20 @@ class RegisterViewModel {
                 registerModel.ValidatePasswordConfirm(password: password, passwordConfirm: passwordConfirm)
             }
         
-        input.buttonTaptest
-            .drive(onNext: { _ in
-                print("登録ボタンが押された, VM")
-            })
-            .disposed(by: disposeBag)
-        
         // アカウント作成
-        let emailAndPasswordValidation = Driver.combineLatest(input.email, input.password) { (email: $0, password: $1) }
+        let emailAndPassword = Driver.combineLatest(input.email, input.password) { (email: $0, password: $1) }
         let result = input.signUpTaps
             .asObservable()
-            .withLatestFrom(emailAndPasswordValidation)   // 結果を合わせて使うイメージ
+            .withLatestFrom(emailAndPassword)
             .flatMapLatest { tuple in
-                signUpAPI.createUserToFireAuth(email: tuple.email, password: tuple.password)   // M に処理を任せる, M から通知が返ってくる(Bool)
+                signUpAPI.createUserToFireAuth(email: tuple.email, password: tuple.password)
             }
             .share(replay: 1)
         
-        // アカウント作成したか
+        // M でのアカウント登録結果を受け取り、V に渡している, M→VM, VM→M
         isSignUp = result
             .filter { $0 != nil }
-            .map { _ in true }
+            .map { result in return result }
             .asDriver(onErrorJustReturn: false )
         
         // アカウント作成可能か

@@ -103,42 +103,12 @@ class RegisterViewController: UIViewController {
     
     private func setupBinding() {
         
-//        emailTextField.rx.text   // 入力を受け取る
-//            .asDriver()
-//            .drive { [weak self] text in
-//                self?.registerViewModel.mailTextInput.onNext(text ?? "")   // VM に通知
-//            }
-//            .disposed(by: disposeBag)
-//
-//        passwordTextField.rx.text   // 入力を受け取る
-//            .asDriver()
-//            .drive { [weak self] text in
-//                self?.registerViewModel.passwordTextInput.onNext(text ?? "")   // VM に通知
-//            }
-//            .disposed(by: disposeBag)
-//
-//        registerButton.rx.tap
-//            .asDriver()
-//            .drive { [weak self] _ in
-//                print("登録ボタンが押された")
-//                // FireAuth への登録処理
-//            }
-//            .disposed(by: disposeBag)
-//
-//        registerViewModel.resultRegisterDriver
-//            .drive { result in
-//                self.registerButton.isEnabled = result   // ボタンの反応
-//                self.registerButton.backgroundColor = result ? .orange : .blue
-//            }
-//            .disposed(by: disposeBag)
-        
         // VM とのつながり, input にイベントを送る(テキストの変更やボタンのタップ等), 送るだけ, 登録のようなイメージ
         registerViewModel = RegisterViewModel(input: (
             email: emailTextField.rx.text.orEmpty.asDriver(),
             password: passwordTextField.rx.text.orEmpty.asDriver(),
             passwordConfirm: passwordConfirmTextField.rx.text.orEmpty.asDriver(),
-            signUpTaps: registerButton.rx.tap.asSignal(),
-            buttonTaptest: registerTestButton.rx.tap.asDriver()
+            signUpTaps: registerButton.rx.tap.asSignal()   // ボタンのタップには Single を使用する
         ), signUpAPI: FireAuthModel())
         
         // MV からデータ受け取る, データの値を変更
@@ -160,6 +130,13 @@ class RegisterViewController: UIViewController {
                 self?.registerButton.alpha = valid ? 1.0 : 0.5
                 print("valid: ", valid)
             })
+            .disposed(by: disposeBag)
+        
+        // これがないと アカウント登録メソッド(M) が呼ばれない
+        registerViewModel.isSignUp
+            .drive { result in
+                print("result: ", result)
+            }
             .disposed(by: disposeBag)
         
     }
