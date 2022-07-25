@@ -10,18 +10,12 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?   // アプリ起動時に表示する View を格納する変数
-        
-    // 起動時に実行
+
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        
-        window?.rootViewController = ViewController()   // アプリ起動時に表示するViewを指定
+        // Override point for customization after application launch.
         return true
     }
-
 
     // MARK: UISceneSession Lifecycle
 //
