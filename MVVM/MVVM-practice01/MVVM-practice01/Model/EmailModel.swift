@@ -10,18 +10,8 @@ import RxCocoa
 
 class EmailModel {
     
-    /*
-    func addQuestionMark(text: String) -> Observable<String> {
-        
-        return Observable<String>.create { observer in
-            observer.onNext(text + "?")
-            return Disposables.create { print("Observable: Dispose") }
-        }
-        
-    }
-    */
-    
-    
+    // VM からの接続, VMから呼び出されることで接続を行うイメージ
+    // TODO: - 戻り値を Observable<String> にする, VM-M の関係をリアクティブにするため
     func addQuestionMark(text: String) -> String {
         return text + "?"
     }

@@ -21,8 +21,8 @@ class EmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBinding()
         setupLayout()
+        setupBinding()
     }
     
     // MARK: - Functions
@@ -52,14 +52,16 @@ class EmailViewController: UIViewController {
     }
     
     func setupBinding() {
+        // VM への接続
         let emailViewModel = EmailViewModel(emailTextField: emailTextField.rx.text.orEmpty.asDriver())
         
+        // VM のデータ変更を同期的に処理
         emailViewModel.result
-            .drive { result in
-                //print(result)
-                self.emailLabel.text = result
+            .drive { text in
+                //print(text)
+                self.emailLabel.text = text
             }
-            .disposed(by: disposeBag)
+            .disposed(by: disposeBag)   // disposeBag は上で宣言ずみ
     }
 
 
