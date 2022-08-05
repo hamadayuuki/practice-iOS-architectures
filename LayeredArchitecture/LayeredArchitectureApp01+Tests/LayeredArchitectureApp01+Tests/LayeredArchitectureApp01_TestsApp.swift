@@ -11,7 +11,7 @@ import SwiftUI
 struct LayeredArchitectureApp01_TestsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            QiitaListView()
         }
     }
 }
