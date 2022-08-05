@@ -12,18 +12,20 @@ class APIRequest {
     @Published var items = [Decodable]()   // ここを外部から参照する
     private let qiitaURL = "https//qiita.com/api/v2"
     
-    //         ↓ APIから受け取るデータの型を可変にしている
-    func fetch<T: Codable>(_: T, query: String) {
-        let url = URL(string: "\(qiitaURL)/items?query=\(query)&page=1&per_page=50")!
+    //         ↓ APIから受け取るデータの型を可変にしている, RequestComponentを挟んで ~~RequestComponent を呼び出す
+    public func fetch<T: RequestComponent>(component: T) {
+        let url = URL(string: "\(qiitaURL)/items?query=\(component.query)&page=1&per_page=50")!
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             do {
                 if let data = data {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let items = try decoder.decode(T.self, from: data)
+                    //                             ↓ なぜ component ではなく T なのか
+                    let items = try decoder.decode(T.type.self, from: data)
                     DispatchQueue.main.async {
                         self.items = items as! [Decodable]
+                        print(self.items)
                     }
                 }
             } catch {
