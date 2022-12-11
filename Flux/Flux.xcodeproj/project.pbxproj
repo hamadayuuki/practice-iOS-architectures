@@ -15,6 +15,8 @@
 		D44F5CF2291DD52800DE7818 /* FluxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44F5CF1291DD52800DE7818 /* FluxTests.swift */; };
 		D44F5CFC291DD52800DE7818 /* FluxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44F5CFB291DD52800DE7818 /* FluxUITests.swift */; };
 		D44F5CFE291DD52800DE7818 /* FluxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44F5CFD291DD52800DE7818 /* FluxUITestsLaunchTests.swift */; };
+		D44F5D0C291DF85C00DE7818 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44F5D0B291DF85C00DE7818 /* Action.swift */; };
+		D44F5D0F291DF9BC00DE7818 /* QiitaApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44F5D0E291DF9BC00DE7818 /* QiitaApiSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		D44F5CF7291DD52800DE7818 /* FluxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44F5CFB291DD52800DE7818 /* FluxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxUITests.swift; sourceTree = "<group>"; };
 		D44F5CFD291DD52800DE7818 /* FluxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D44F5D0B291DF85C00DE7818 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		D44F5D0E291DF9BC00DE7818 /* QiitaApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaApiSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 				D44F5CDA291DD52700DE7818 /* AppDelegate.swift */,
 				D44F5CDC291DD52700DE7818 /* SceneDelegate.swift */,
 				D44F5CDE291DD52700DE7818 /* ViewController.swift */,
+				D44F5D0A291DF81300DE7818 /* Action */,
+				D44F5D0D291DF9A400DE7818 /* Qiita */,
 				D44F5CE3291DD52800DE7818 /* Assets.xcassets */,
 				D44F5CE5291DD52800DE7818 /* LaunchScreen.storyboard */,
 				D44F5CE8291DD52800DE7818 /* Info.plist */,
@@ -122,6 +128,22 @@
 				D44F5CFD291DD52800DE7818 /* FluxUITestsLaunchTests.swift */,
 			);
 			path = FluxUITests;
+			sourceTree = "<group>";
+		};
+		D44F5D0A291DF81300DE7818 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				D44F5D0B291DF85C00DE7818 /* Action.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		D44F5D0D291DF9A400DE7818 /* Qiita */ = {
+			isa = PBXGroup;
+			children = (
+				D44F5D0E291DF9BC00DE7818 /* QiitaApiSession.swift */,
+			);
+			path = Qiita;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D44F5D0F291DF9BC00DE7818 /* QiitaApiSession.swift in Sources */,
 				D44F5CDF291DD52700DE7818 /* ViewController.swift in Sources */,
+				D44F5D0C291DF85C00DE7818 /* Action.swift in Sources */,
 				D44F5CDB291DD52700DE7818 /* AppDelegate.swift in Sources */,
 				D44F5CDD291DD52700DE7818 /* SceneDelegate.swift in Sources */,
 			);
