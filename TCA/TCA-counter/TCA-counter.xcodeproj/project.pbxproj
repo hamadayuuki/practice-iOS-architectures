@@ -14,6 +14,7 @@
 		D4345A9929CC635900575991 /* TCA_counterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4345A9829CC635900575991 /* TCA_counterTests.swift */; };
 		D4345AA329CC635900575991 /* TCA_counterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4345AA229CC635900575991 /* TCA_counterUITests.swift */; };
 		D4345AA529CC635900575991 /* TCA_counterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4345AA429CC635900575991 /* TCA_counterUITestsLaunchTests.swift */; };
+		D4345AB329CC63E000575991 /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4345AB229CC63E000575991 /* CounterState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		D4345A9E29CC635900575991 /* TCA-counterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TCA-counterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4345AA229CC635900575991 /* TCA_counterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_counterUITests.swift; sourceTree = "<group>"; };
 		D4345AA429CC635900575991 /* TCA_counterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_counterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D4345AB229CC63E000575991 /* CounterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		D4345A8629CC635700575991 /* TCA-counter */ = {
 			isa = PBXGroup;
 			children = (
+				D4345AB129CC63CF00575991 /* State */,
 				D4345A8729CC635700575991 /* TCA_counterApp.swift */,
 				D4345A8929CC635700575991 /* ContentView.swift */,
 				D4345A8B29CC635900575991 /* Assets.xcassets */,
@@ -125,6 +128,14 @@
 				D4345AA429CC635900575991 /* TCA_counterUITestsLaunchTests.swift */,
 			);
 			path = "TCA-counterUITests";
+			sourceTree = "<group>";
+		};
+		D4345AB129CC63CF00575991 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				D4345AB229CC63E000575991 /* CounterState.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4345AB329CC63E000575991 /* CounterState.swift in Sources */,
 				D4345A8A29CC635700575991 /* ContentView.swift in Sources */,
 				D4345A8829CC635700575991 /* TCA_counterApp.swift in Sources */,
 			);
