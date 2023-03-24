@@ -19,6 +19,7 @@
 		D4345AB929CC650600575991 /* CounterEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4345AB829CC650600575991 /* CounterEnvironment.swift */; };
 		D4345ABC29CC65DE00575991 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = D4345ABB29CC65DE00575991 /* ComposableArchitecture */; };
 		D4345ABF29CC669500575991 /* CounterReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4345ABE29CC669500575991 /* CounterReducer.swift */; };
+		D4345AC229CC67AE00575991 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4345AC129CC67AE00575991 /* CounterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D4345AB529CC645F00575991 /* CounterAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterAction.swift; sourceTree = "<group>"; };
 		D4345AB829CC650600575991 /* CounterEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterEnvironment.swift; sourceTree = "<group>"; };
 		D4345ABE29CC669500575991 /* CounterReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterReducer.swift; sourceTree = "<group>"; };
+		D4345AC129CC67AE00575991 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		D4345A8629CC635700575991 /* TCA-counter */ = {
 			isa = PBXGroup;
 			children = (
+				D4345AC029CC67A200575991 /* View */,
 				D4345ABD29CC661900575991 /* Reducer */,
 				D4345AB729CC64F000575991 /* Enviroment */,
 				D4345AB429CC645000575991 /* Action */,
@@ -171,6 +174,14 @@
 				D4345ABE29CC669500575991 /* CounterReducer.swift */,
 			);
 			path = Reducer;
+			sourceTree = "<group>";
+		};
+		D4345AC029CC67A200575991 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4345AC129CC67AE00575991 /* CounterView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +323,7 @@
 				D4345AB929CC650600575991 /* CounterEnvironment.swift in Sources */,
 				D4345ABF29CC669500575991 /* CounterReducer.swift in Sources */,
 				D4345AB629CC645F00575991 /* CounterAction.swift in Sources */,
+				D4345AC229CC67AE00575991 /* CounterView.swift in Sources */,
 				D4345AB329CC63E000575991 /* CounterState.swift in Sources */,
 				D4345A8A29CC635700575991 /* ContentView.swift in Sources */,
 				D4345A8829CC635700575991 /* TCA_counterApp.swift in Sources */,
