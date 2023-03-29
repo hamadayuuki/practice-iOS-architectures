@@ -15,6 +15,7 @@
 		D4822AC429D3E3C300ECAF34 /* TCA_todosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4822AC329D3E3C300ECAF34 /* TCA_todosUITests.swift */; };
 		D4822AC629D3E3C300ECAF34 /* TCA_todosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4822AC529D3E3C300ECAF34 /* TCA_todosUITestsLaunchTests.swift */; };
 		D4822AD629D3E4B800ECAF34 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = D4822AD529D3E4B800ECAF34 /* ComposableArchitecture */; };
+		D4822AD829D3E50200ECAF34 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4822AD729D3E50200ECAF34 /* Todo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		D4822ABF29D3E3C300ECAF34 /* TCA-todosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TCA-todosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4822AC329D3E3C300ECAF34 /* TCA_todosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_todosUITests.swift; sourceTree = "<group>"; };
 		D4822AC529D3E3C300ECAF34 /* TCA_todosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_todosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D4822AD729D3E50200ECAF34 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				D4822AA829D3E3C200ECAF34 /* TCA_todosApp.swift */,
 				D4822AAA29D3E3C200ECAF34 /* ContentView.swift */,
+				D4822AD729D3E50200ECAF34 /* Todo.swift */,
 				D4822AAC29D3E3C300ECAF34 /* Assets.xcassets */,
 				D4822AAE29D3E3C300ECAF34 /* Preview Content */,
 			);
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4822AAB29D3E3C200ECAF34 /* ContentView.swift in Sources */,
+				D4822AD829D3E50200ECAF34 /* Todo.swift in Sources */,
 				D4822AA929D3E3C200ECAF34 /* TCA_todosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
