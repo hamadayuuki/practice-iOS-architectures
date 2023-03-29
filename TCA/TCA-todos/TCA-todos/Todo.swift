@@ -22,3 +22,25 @@ struct Todo: ReducerProtocol {
         case textFieldChanged(String)
     }
 }
+
+// store は ContentViewから注入される
+struct TodoView: View {
+    let store: StoreOf<Todo>
+    
+    var body: some View {
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            HStack {
+                //                         ↓ イベントを通知する
+                Button(action: { viewStore.send(.checkBoxToggled) }) {
+                    Image(systemName: viewStore.isComplete ? "checkmark.square" : "square")
+                }
+                .buttonStyle(.plain)
+                
+                TextField(
+                    "Untitled Todo",
+                    text: viewStore.binding(get: \.description, send: Todo.Action.textFieldChanged)
+                )
+            }
+        }
+    }
+}
