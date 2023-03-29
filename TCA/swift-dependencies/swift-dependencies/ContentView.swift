@@ -6,14 +6,22 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ContentView: View {
+    @Dependency(\.factClient) var factClient
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+                .onAppear {
+                    Task {
+                        print(try await factClient.fetch(3))
+                    }
+                }
         }
         .padding()
     }
