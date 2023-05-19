@@ -17,10 +17,10 @@ struct Todo: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .checkBoxToggled:
-            print("call checkBoxToggled Action!")
+            state.isComplete.toggle()
             return .none
         case .textFieldChanged(let text):
-            print("call textFieldChanged Action!")
+            state.description = text
             return .none
         }
     }
