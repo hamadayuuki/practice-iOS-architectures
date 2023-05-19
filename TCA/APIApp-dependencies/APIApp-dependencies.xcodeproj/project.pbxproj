@@ -14,6 +14,7 @@
 		D4C7A2D72A17A1C400B91221 /* APIApp_dependenciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7A2D62A17A1C400B91221 /* APIApp_dependenciesTests.swift */; };
 		D4C7A2E12A17A1C400B91221 /* APIApp_dependenciesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7A2E02A17A1C400B91221 /* APIApp_dependenciesUITests.swift */; };
 		D4C7A2E32A17A1C400B91221 /* APIApp_dependenciesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7A2E22A17A1C400B91221 /* APIApp_dependenciesUITestsLaunchTests.swift */; };
+		D4C7A2F12A17A23000B91221 /* APIAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7A2F02A17A23000B91221 /* APIAppView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		D4C7A2DC2A17A1C400B91221 /* APIApp-dependenciesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "APIApp-dependenciesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C7A2E02A17A1C400B91221 /* APIApp_dependenciesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIApp_dependenciesUITests.swift; sourceTree = "<group>"; };
 		D4C7A2E22A17A1C400B91221 /* APIApp_dependenciesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIApp_dependenciesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D4C7A2F02A17A23000B91221 /* APIAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				D4C7A2C52A17A1C200B91221 /* APIApp_dependenciesApp.swift */,
 				D4C7A2C72A17A1C200B91221 /* ContentView.swift */,
+				D4C7A2EF2A17A21100B91221 /* View */,
 				D4C7A2C92A17A1C300B91221 /* Assets.xcassets */,
 				D4C7A2CB2A17A1C300B91221 /* Preview Content */,
 			);
@@ -125,6 +128,14 @@
 				D4C7A2E22A17A1C400B91221 /* APIApp_dependenciesUITestsLaunchTests.swift */,
 			);
 			path = "APIApp-dependenciesUITests";
+			sourceTree = "<group>";
+		};
+		D4C7A2EF2A17A21100B91221 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4C7A2F02A17A23000B91221 /* APIAppView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			files = (
 				D4C7A2C82A17A1C200B91221 /* ContentView.swift in Sources */,
 				D4C7A2C62A17A1C200B91221 /* APIApp_dependenciesApp.swift in Sources */,
+				D4C7A2F12A17A23000B91221 /* APIAppView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
