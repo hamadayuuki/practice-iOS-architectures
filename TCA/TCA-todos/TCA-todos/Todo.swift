@@ -65,3 +65,11 @@ struct TodoView: View {
         }
     }
 }
+
+struct TodoView_Previews: PreviewProvider {
+    static var previews: some View {
+        TodoView(store: Store(initialState: Todo.State(id: UUID())) {
+            Todo()
+        })
+    }
+}
