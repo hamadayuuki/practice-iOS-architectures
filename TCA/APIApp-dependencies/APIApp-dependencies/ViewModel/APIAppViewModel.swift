@@ -10,10 +10,9 @@ import Foundation
 
 @MainActor
 class APIAppViewModel: ObservableObject {
-    //private let apiClient = APIClient()   // 廃止:Clientを直接指定
     @Dependency(\.apiClient) var apiClient   // dependenciesによるDI
     
-    @Published var repos: [Repository] = []
+    @Published private(set) var repos: [Repository] = []
     
     init() {}
     

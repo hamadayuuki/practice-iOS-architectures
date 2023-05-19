@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct APIAppView: View {
-    @StateObject var apiAppViewModel = APIAppViewModel()
-    @State var text = ""
+    @StateObject private var apiAppViewModel = APIAppViewModel()
+    @State private var text = ""
 
     var body: some View {
         NavigationView {
