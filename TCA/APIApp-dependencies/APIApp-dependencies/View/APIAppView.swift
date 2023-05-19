@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct APIAppView: View {
-    private var repos = ["Apple", "Swift", "Concurrency"]
+    @StateObject var apiAppViewModel = APIAppViewModel()
     @State var text = ""
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<repos.count) { index in
-                    Text(repos[index])
+                ForEach(0..<apiAppViewModel.repos.count) { index in
+                    Text(apiAppViewModel.repos[index])
                 }
             }
         }
         .searchable(text: $text, placement: .navigationBarDrawer(displayMode: .always), prompt: "検索値")
         .onSubmit(of: .search) {
             
+        }
+        .onAppear {
+            Task {
+                await apiAppViewModel.fetch()
+            }
         }
     }
 }
