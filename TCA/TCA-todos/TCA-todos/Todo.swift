@@ -9,6 +9,17 @@ import ComposableArchitecture
 import SwiftUI
 
 struct Todo: ReducerProtocol {
+    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+        switch action {
+        case .checkBoxToggled:
+            print("call checkBoxToggled Action!")
+            return .none
+        case .textFieldChanged(let text):
+            print("call textFieldChanged Action!")
+            return .none
+        }
+    }
+    
     // 状態を表す変数を定義
     struct State: Equatable, Identifiable {
         var description = ""
