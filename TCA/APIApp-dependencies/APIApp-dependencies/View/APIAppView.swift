@@ -14,7 +14,7 @@ struct APIAppView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<apiAppViewModel.repos.count) { index in
+                ForEach(0..<apiAppViewModel.repos.count, id: \.self) { index in
                     Text(apiAppViewModel.repos[index])
                 }
             }
