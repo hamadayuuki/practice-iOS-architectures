@@ -60,6 +60,7 @@ struct TodoView: View {
                         text: viewStore.binding(get: \.description, send: Todo.Action.textFieldChanged)
                     )
                 }
+                .padding()
             }
         }
     }
