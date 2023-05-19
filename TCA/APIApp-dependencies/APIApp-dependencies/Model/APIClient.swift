@@ -9,11 +9,11 @@ import Foundation
 import Dependencies
 
 // 1:DIするためにプロトコルとして宣言
-protocol APIClienttProtocol: Sendable {
+protocol APIClientProtocol: Sendable {
     func fetch() async throws -> Data
 }
 
-public struct APIClient: APIClienttProtocol {
+public struct APIClient: APIClientProtocol {
     private let url = URL(string: "https://api.github.com/search/repositories?q=swift")!
 
     public init() {}
@@ -27,13 +27,13 @@ public struct APIClient: APIClienttProtocol {
 // 2:DependencyKey の登録
 private enum APIClientKey: DependencyKey {
     // アプリ実行時使用
-    static let liveValue: any APIClienttProtocol = APIClient()
+    static let liveValue: any APIClientProtocol = APIClient()
 }
 
 // 3:DependencyValues の拡張
 extension DependencyValues {
     //  ↓ @Dependency で呼び出す時のKeyとなる
-    var apiClient: any APIClienttProtocol {
+    var apiClient: any APIClientProtocol {
         // 呼び出されるデータを getter, setter で管理
         get { self[APIClientKey.self] }
         set { self[APIClientKey.self] = newValue }
