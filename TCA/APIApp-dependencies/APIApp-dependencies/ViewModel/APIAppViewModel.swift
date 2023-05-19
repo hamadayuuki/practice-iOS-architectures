@@ -10,15 +10,15 @@ import Foundation
 @MainActor
 class APIAppViewModel: ObservableObject {
     private let apiClient = APIClient()
-    @Published var repos: [String] = []
+    @Published var repos: [Repository] = []
     
     init() {}
     
     func fetch() async {
         do {
-            //let data = try await apiClient.fetch()
-            //print(data)
-            repos = ["Apple", "Swift", "Concurrency"]
+            let data = try await apiClient.fetch()
+            let repositories = try JSONDecoder().decode(Repositories.self, from: data)
+            self.repos = repositories.items
         } catch {
             fatalError("fetch error")
         }
