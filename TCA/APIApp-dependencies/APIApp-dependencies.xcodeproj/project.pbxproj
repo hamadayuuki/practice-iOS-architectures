@@ -18,6 +18,7 @@
 		D4C7A2F72A17AE0700B91221 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = D4C7A2F62A17AE0700B91221 /* Dependencies */; };
 		D4C7A2FA2A17AE3900B91221 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = D4C7A2F92A17AE3900B91221 /* ComposableArchitecture */; };
 		D4C7A2FD2A17BCAA00B91221 /* APIAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7A2FC2A17BCAA00B91221 /* APIAppViewModel.swift */; };
+		D4C7A3002A17C39300B91221 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7A2FF2A17C39300B91221 /* Repositories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		D4C7A2F02A17A23000B91221 /* APIAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAppView.swift; sourceTree = "<group>"; };
 		D4C7A2F32A17AB6F00B91221 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D4C7A2FC2A17BCAA00B91221 /* APIAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAppViewModel.swift; sourceTree = "<group>"; };
+		D4C7A2FF2A17C39300B91221 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C7A2C52A17A1C200B91221 /* APIApp_dependenciesApp.swift */,
+				D4C7A2FE2A17C38A00B91221 /* Entity */,
 				D4C7A2FB2A17BC8700B91221 /* ViewModel */,
 				D4C7A2F22A17AB5C00B91221 /* Model */,
 				D4C7A2EF2A17A21100B91221 /* View */,
@@ -159,6 +162,14 @@
 				D4C7A2FC2A17BCAA00B91221 /* APIAppViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D4C7A2FE2A17C38A00B91221 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D4C7A2FF2A17C39300B91221 /* Repositories.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +312,7 @@
 			files = (
 				D4C7A2C62A17A1C200B91221 /* APIApp_dependenciesApp.swift in Sources */,
 				D4C7A2FD2A17BCAA00B91221 /* APIAppViewModel.swift in Sources */,
+				D4C7A3002A17C39300B91221 /* Repositories.swift in Sources */,
 				D4C7A2F12A17A23000B91221 /* APIAppView.swift in Sources */,
 				D4C7A2F42A17AB6F00B91221 /* APIClient.swift in Sources */,
 			);
