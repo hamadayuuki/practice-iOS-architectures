@@ -45,17 +45,21 @@ struct TodoView: View {
     
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            HStack {
-                //                         ↓ イベントを通知する
-                Button(action: { viewStore.send(.checkBoxToggled) }) {
-                    Image(systemName: viewStore.isComplete ? "checkmark.square" : "square")
-                }
-                .buttonStyle(.plain)
+            VStack {
+                Text(viewStore.description)
                 
-                TextField(
-                    "Untitled Todo",
-                    text: viewStore.binding(get: \.description, send: Todo.Action.textFieldChanged)
-                )
+                HStack {
+                    //                         ↓ イベントを通知する
+                    Button(action: { viewStore.send(.checkBoxToggled) }) {
+                        Image(systemName: viewStore.isComplete ? "checkmark.square" : "square")
+                    }
+                    .buttonStyle(.plain)
+                    
+                    TextField(
+                        "Untitled Todo",
+                        text: viewStore.binding(get: \.description, send: Todo.Action.textFieldChanged)
+                    )
+                }
             }
         }
     }
