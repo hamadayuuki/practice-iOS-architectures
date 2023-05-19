@@ -9,6 +9,11 @@ import ComposableArchitecture
 import SwiftUI
 
 struct Todo: ReducerProtocol {
+    // イベントに合わせて状態を変更
+    /*
+        イベント:Viewから受け取る
+        状態:switch文の中で変更, 変更し次第Viewに通知がいく
+    */
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .checkBoxToggled:
