@@ -10,15 +10,16 @@ import Dependencies
 
 // 1:DIするためにプロトコルとして宣言
 protocol APIClientProtocol: Sendable {
-    func fetch() async throws -> Data
+    func fetch(searchWord: String) async throws -> Data
 }
 
 public struct APIClient: APIClientProtocol {
-    private let url = URL(string: "https://api.github.com/search/repositories?q=swift")!
+    private let baseUrl = "https://api.github.com/search/repositories"
 
     public init() {}
     
-    public func fetch() async throws -> Data {
+    public func fetch(searchWord: String) async throws -> Data {
+        let url = URL(string: "\(baseUrl)?q=\(searchWord))")!   
         let (data, _) = try await URLSession.shared.data(from: url)
         return data
     }

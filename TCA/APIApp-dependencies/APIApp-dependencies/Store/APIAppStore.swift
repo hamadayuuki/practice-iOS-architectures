@@ -6,15 +6,21 @@
 //
 
 import ComposableArchitecture
+import Dependencies
+import Foundation
 
 struct APIAppStore: ReducerProtocol {
+    @Dependency(\.apiClient) var apiClient   // リポジトリ一覧を取得する
+
     struct State: Equatable {
         var repos: [Repository] = []
     }
     
     enum Action: Equatable {
-        case tappedSearchButton
+        case tappedSearchButton(String)
         case tappedClearButton
+
+        case setRepos([Repository])   // TCAの練習用のため エラーを考慮していない
     }
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
@@ -22,10 +28,17 @@ struct APIAppStore: ReducerProtocol {
         switch action {
             
         // リポジトリ一覧を取得
-        case .tappedSearchButton:
-            state.repos = [
-                Repository(id: 0, language: "Swfit", stargazers_count: 100, watchers_count: 100, forks_count: 100, open_issues_count: 100, full_name: "SwiftRepo1", url: "https://~~~", updated_at: "2023/05/30", owner: Owner(id: 0, avatar_url: "https://~~~"))
-                ]   // 仮置き
+        case .tappedSearchButton(let searchWord):
+            // Reducer内でConcurrencyを使用するためには .run を使う
+            return .run { send in
+                let data = try await apiClient.fetch(searchWord: searchWord)
+                let repositories = try JSONDecoder().decode(Repositories.self, from: data)
+                let repos: [Repository] = repositories.items
+                await send(.setRepos(repos))
+            }
+        // state.reops にデータを代入
+        case.setRepos(let repos):
+            state.repos = repos
             return .none
         
         // リポジトリ一覧を削除
