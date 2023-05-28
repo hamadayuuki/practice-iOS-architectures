@@ -115,7 +115,6 @@
 				D4C7A2C52A17A1C200B91221 /* APIApp_dependenciesApp.swift */,
 				D46982542A2364AE0068E767 /* Store */,
 				D4C7A2FE2A17C38A00B91221 /* Entity */,
-				D4C7A2FB2A17BC8700B91221 /* ViewModel */,
 				D4C7A2F22A17AB5C00B91221 /* Model */,
 				D4C7A2EF2A17A21100B91221 /* View */,
 				D4C7A2C92A17A1C300B91221 /* Assets.xcassets */,
@@ -163,13 +162,6 @@
 				D4C7A2F32A17AB6F00B91221 /* APIClient.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D4C7A2FB2A17BC8700B91221 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D4C7A2FE2A17C38A00B91221 /* Entity */ = {
