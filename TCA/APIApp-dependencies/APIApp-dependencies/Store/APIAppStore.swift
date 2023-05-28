@@ -11,4 +11,9 @@ struct APIAppStore: ReducerProtocol {
     struct State: Equatable {
         var repos: [Repository] = []
     }
+    
+    enum Action: Equatable {
+        case tappedSearchButton
+        case tappedClearButton
+    }
 }
