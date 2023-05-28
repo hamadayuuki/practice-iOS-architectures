@@ -31,9 +31,7 @@ struct APIAppStore: ReducerProtocol {
         case .tappedSearchButton(let searchWord):
             // Reducer内でConcurrencyを使用するためには .run を使う
             return .run { send in
-                let data = try await apiClient.fetch(searchWord: searchWord)
-                let repositories = try JSONDecoder().decode(Repositories.self, from: data)
-                let repos: [Repository] = repositories.items
+                let repos = try await apiClient.fetch(searchWord: searchWord)
                 await send(.setRepos(repos))
             }
         // state.reops にデータを代入

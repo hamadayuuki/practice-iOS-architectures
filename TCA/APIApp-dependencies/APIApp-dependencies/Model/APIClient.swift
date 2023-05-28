@@ -10,7 +10,7 @@ import Dependencies
 
 // 1:DIするためにプロトコルとして宣言
 protocol APIClientProtocol: Sendable {
-    func fetch(searchWord: String) async throws -> Data
+    func fetch(searchWord: String) async throws -> [Repository]
 }
 
 public struct APIClient: APIClientProtocol {
@@ -18,10 +18,12 @@ public struct APIClient: APIClientProtocol {
 
     public init() {}
     
-    public func fetch(searchWord: String) async throws -> Data {
+    public func fetch(searchWord: String) async throws -> [Repository] {
         let url = URL(string: "\(baseUrl)?q=\(searchWord))")!   
         let (data, _) = try await URLSession.shared.data(from: url)
-        return data
+        let repositories = try JSONDecoder().decode(Repositories.self, from: data)
+        let repos: [Repository] = repositories.items
+        return repos
     }
 }
 
