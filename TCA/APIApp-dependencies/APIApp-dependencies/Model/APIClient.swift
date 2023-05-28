@@ -9,6 +9,7 @@ import Foundation
 import Dependencies
 
 // 1:DIするためにプロトコルとして宣言
+// テストする際 簡単にMockへ切り替え可能
 protocol APIClientProtocol: Sendable {
     func fetch(searchWord: String) async throws -> [Repository]
 }
@@ -23,6 +24,24 @@ public struct APIClient: APIClientProtocol {
         let (data, _) = try await URLSession.shared.data(from: url)
         let repositories = try JSONDecoder().decode(Repositories.self, from: data)
         let repos: [Repository] = repositories.items
+        return repos
+    }
+}
+
+public struct APIClientMock: APIClientProtocol {
+    public init() {}
+    
+    public func createReposMock() -> [Repository] {
+        var repos: [Repository] = []
+        for i in 0..<10 {
+            let repo = Repository(id: i, language: "\(i)", stargazers_count: i, watchers_count: i, forks_count: i, open_issues_count: i, full_name: "\(i)", url: "https://\(i)", updated_at: "\(i)", owner: Owner(id: i, avatar_url: "https://\(i)"))
+            repos.append(repo)
+        }
+        return repos
+    }
+    
+    public func fetch(searchWord: String) async throws -> [Repository] {
+        let repos: [Repository] = createReposMock()
         return repos
     }
 }
