@@ -13,7 +13,8 @@ public struct Repositories: Decodable {
     }
 }
 
-public struct Repository: Decodable {
+//                                   ↓ StoreのState でRepositoryを使用するために付与
+public struct Repository: Decodable, Equatable {
     var id: Int
     var language: String?  // null を含む
     var stargazers_count: Int
@@ -50,7 +51,7 @@ public struct Repository: Decodable {
     }
 }
 
-public struct Owner: Decodable {
+public struct Owner: Decodable, Equatable {
     var id: Int
     var avatar_url: String
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D46982562A2364D80068E767 /* APIAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46982552A2364D80068E767 /* APIAppStore.swift */; };
 		D4C7A2C62A17A1C200B91221 /* APIApp_dependenciesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7A2C52A17A1C200B91221 /* APIApp_dependenciesApp.swift */; };
 		D4C7A2CA2A17A1C300B91221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C7A2C92A17A1C300B91221 /* Assets.xcassets */; };
 		D4C7A2CD2A17A1C300B91221 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C7A2CC2A17A1C300B91221 /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D46982552A2364D80068E767 /* APIAppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAppStore.swift; sourceTree = "<group>"; };
 		D4C7A2C22A17A1C200B91221 /* APIApp-dependencies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APIApp-dependencies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C7A2C52A17A1C200B91221 /* APIApp_dependenciesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIApp_dependenciesApp.swift; sourceTree = "<group>"; };
 		D4C7A2C92A17A1C300B91221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D46982542A2364AE0068E767 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				D46982552A2364D80068E767 /* APIAppStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		D4C7A2B92A17A1C200B91221 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C7A2C52A17A1C200B91221 /* APIApp_dependenciesApp.swift */,
+				D46982542A2364AE0068E767 /* Store */,
 				D4C7A2FE2A17C38A00B91221 /* Entity */,
 				D4C7A2FB2A17BC8700B91221 /* ViewModel */,
 				D4C7A2F22A17AB5C00B91221 /* Model */,
@@ -314,6 +325,7 @@
 				D4C7A2FD2A17BCAA00B91221 /* APIAppViewModel.swift in Sources */,
 				D4C7A3002A17C39300B91221 /* Repositories.swift in Sources */,
 				D4C7A2F12A17A23000B91221 /* APIAppView.swift in Sources */,
+				D46982562A2364D80068E767 /* APIAppStore.swift in Sources */,
 				D4C7A2F42A17AB6F00B91221 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
