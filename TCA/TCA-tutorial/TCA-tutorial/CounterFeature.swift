@@ -30,14 +30,15 @@ struct CounterFeature: ReducerProtocol {
      
         ※ into, inout: 参照渡し, 関数の中でその引数に変更を加えた場合、呼び出し側の元の変数にも変更が適用される
      */
-    func reduce(into state: inout State, action: Action) {
+    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .decrementButtonTapped:
-            // decrementButton が押された時の処理
+            state.count -= 1
+            return .none   // Effectを実行する必要がないため .none を返す
             
         case .incrementButtonTapped:
-            // incrementButton が押された時の処理
-            
+            state.count -= 1
+            return .none
         }
     }
 }
