@@ -50,6 +50,7 @@ struct CounterFeature: ReducerProtocol {
         // APIからデータを取得する
         case .factButtonTapped:
             return .run { [count = state.count] send in
+                // TODO: Info.plist > App Transport Security Settings > Allow Arbitary Loads > "YES"
                 let (data, _) = try await URLSession.shared.data(from: URL(string: "http://numbersapi.com/\(count)")!)
                 let fact = String(decoding: data, as: UTF8.self)
 //                state.fact = fact   // 🛑 Mutable capture of 'inout' parameter 'state' is not allowed in concurrently-executing code
@@ -57,7 +58,7 @@ struct CounterFeature: ReducerProtocol {
             }
         
         // データをStateへ反映させる
-        // 反映は Effect(.run) で行えない. 
+        // 反映は Effect(.run) で行えない.
         case .setFact(let fact):
             state.fact = fact
             return .none
@@ -94,13 +95,13 @@ struct ConunterView: View {
                 }
                 
                 Button(action: {
-                    
+                    viewStore.send(.factButtonTapped)
                 }, label: {
-                    Text("Find information about numbers")
+                    Text("Find information about numbers")   // factButtonTapped内で setFact が呼ばれる
                 })
                 
                 // http://numbersapi.com/1
-                Text("1 is the number of dimensions of a line.")
+                Text("\(viewStore.fact)")
             }
         }
     }
