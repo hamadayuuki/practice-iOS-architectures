@@ -54,7 +54,7 @@ struct ConunterView: View {
     
     var body: some View {
         WithViewStore(self.store, observe: { $0 } ) { viewStore in
-            VStack {
+            VStack(spacing: 18) {
                 Text("\(viewStore.count)")   // State を購読し、値変更を検知・反映
                     .font(.largeTitle)
                     .padding()
@@ -74,6 +74,15 @@ struct ConunterView: View {
                         Text("+")
                     })
                 }
+                
+                Button(action: {
+                    
+                }, label: {
+                    Text("Find information about numbers")
+                })
+                
+                // http://numbersapi.com/1
+                Text("1 is the number of dimensions of a line.")
             }
         }
     }
