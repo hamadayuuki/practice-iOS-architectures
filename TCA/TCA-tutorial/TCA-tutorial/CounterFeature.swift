@@ -6,6 +6,9 @@
 //
 
 import ComposableArchitecture
+import SwiftUI
+
+// MARK: - Store
 
 // 1Feature = 1ReducerProtocol
 struct CounterFeature: ReducerProtocol {
@@ -42,5 +45,42 @@ struct CounterFeature: ReducerProtocol {
         }
     }
 }
+
+// MARK: - View
+
+struct ConunterView: View {
+    var body: some View {
+        VStack {
+            Text("0")
+                .font(.largeTitle)
+                .padding()
+            
+            HStack(spacing: 18) {
+                // decrementButton
+                Button(action: {
+                    // decrementButton が押された時の処理
+                    
+                }, label: {
+                    Text("-")
+                })
+                
+                // incrementButton
+                Button(action: {
+                    // incrementButton が押された時の処理
+                    
+                }, label: {
+                    Text("+")
+                })
+            }
+        }
+    }
+}
+
+struct ConunterView_Previews: PreviewProvider {
+    static var previews: some View {
+        ConunterView()
+    }
+}
+
 
 
