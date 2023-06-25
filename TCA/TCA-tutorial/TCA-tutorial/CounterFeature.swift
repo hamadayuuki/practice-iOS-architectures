@@ -15,6 +15,7 @@ struct CounterFeature: ReducerProtocol {
     // State は Equatable型に準拠しておく必要がある
     struct State: Equatable {
         var count = 0
+        var isLoading = false
         var fact = ""
     }
     
@@ -49,6 +50,7 @@ struct CounterFeature: ReducerProtocol {
         
         // APIからデータを取得する
         case .factButtonTapped:
+            state.isLoading = true
             return .run { [count = state.count] send in
                 // TODO: Info.plist > App Transport Security Settings > Allow Arbitary Loads > "YES"
                 let (data, _) = try await URLSession.shared.data(from: URL(string: "http://numbersapi.com/\(count)")!)
@@ -61,6 +63,7 @@ struct CounterFeature: ReducerProtocol {
         // 反映は Effect(.run) で行えない.
         case .setFact(let fact):
             state.fact = fact
+            state.isLoading = false
             return .none
         }
     }
@@ -100,8 +103,12 @@ struct ConunterView: View {
                     Text("Find information about numbers")   // factButtonTapped内で setFact が呼ばれる
                 })
                 
-                // http://numbersapi.com/1
-                Text("\(viewStore.fact)")
+                if viewStore.isLoading {
+                    ProgressView()
+                } else {
+                    // http://numbersapi.com/1
+                    Text("\(viewStore.fact)")
+                }
             }
         }
     }
