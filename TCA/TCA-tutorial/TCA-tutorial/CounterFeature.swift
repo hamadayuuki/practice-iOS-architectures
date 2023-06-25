@@ -41,7 +41,7 @@ struct CounterFeature: ReducerProtocol {
             return .none   // Effectを実行する必要がないため .none を返す
             
         case .incrementButtonTapped:
-            state.count -= 1
+            state.count += 1
             return .none
         }
     }
@@ -55,23 +55,21 @@ struct ConunterView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 } ) { viewStore in
             VStack {
-                Text("0")
+                Text("\(viewStore.count)")   // State を購読し、値変更を検知・反映
                     .font(.largeTitle)
                     .padding()
                 
                 HStack(spacing: 18) {
                     // decrementButton
                     Button(action: {
-                        // decrementButton が押された時の処理
-                        
+                        viewStore.send(.decrementButtonTapped)   // Action を通知
                     }, label: {
                         Text("-")
                     })
                     
                     // incrementButton
                     Button(action: {
-                        // incrementButton が押された時の処理
-                        
+                        viewStore.send(.incrementButtonTapped)
                     }, label: {
                         Text("+")
                     })
