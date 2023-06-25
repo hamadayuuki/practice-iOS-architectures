@@ -12,7 +12,8 @@ import SwiftUI
 
 // 1Feature = 1ReducerProtocol
 struct CounterFeature: ReducerProtocol {
-    struct State {
+    // State は Equatable型に準拠しておく必要がある
+    struct State: Equatable {
         var count = 0
     }
     
@@ -49,28 +50,32 @@ struct CounterFeature: ReducerProtocol {
 // MARK: - View
 
 struct ConunterView: View {
+    let store: StoreOf<CounterFeature>
+    
     var body: some View {
-        VStack {
-            Text("0")
-                .font(.largeTitle)
-                .padding()
-            
-            HStack(spacing: 18) {
-                // decrementButton
-                Button(action: {
-                    // decrementButton が押された時の処理
-                    
-                }, label: {
-                    Text("-")
-                })
+        WithViewStore(self.store, observe: { $0 } ) { viewStore in
+            VStack {
+                Text("0")
+                    .font(.largeTitle)
+                    .padding()
                 
-                // incrementButton
-                Button(action: {
-                    // incrementButton が押された時の処理
+                HStack(spacing: 18) {
+                    // decrementButton
+                    Button(action: {
+                        // decrementButton が押された時の処理
+                        
+                    }, label: {
+                        Text("-")
+                    })
                     
-                }, label: {
-                    Text("+")
-                })
+                    // incrementButton
+                    Button(action: {
+                        // incrementButton が押された時の処理
+                        
+                    }, label: {
+                        Text("+")
+                    })
+                }
             }
         }
     }
@@ -78,7 +83,11 @@ struct ConunterView: View {
 
 struct ConunterView_Previews: PreviewProvider {
     static var previews: some View {
-        ConunterView()
+        ConunterView(
+            store: Store(initialState: CounterFeature.State(), reducer: {
+                CounterFeature()
+            })
+        )
     }
 }
 
