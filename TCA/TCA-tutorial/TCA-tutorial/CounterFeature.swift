@@ -15,6 +15,7 @@ struct CounterFeature: ReducerProtocol {
     // State は Equatable型に準拠しておく必要がある
     struct State: Equatable {
         var count = 0
+        var fact = ""
     }
     
     /*
@@ -25,6 +26,7 @@ struct CounterFeature: ReducerProtocol {
     enum Action {
         case decrementButtonTapped
         case incrementButtonTapped
+        case factButtonTapped
     }
     
     /*
@@ -43,6 +45,13 @@ struct CounterFeature: ReducerProtocol {
         case .incrementButtonTapped:
             state.count += 1
             return .none
+        
+        case .factButtonTapped:
+            return .run { [count = state.count] _ in
+                let (data, _) = try await URLSession.shared.data(from: URL(string: "http://numbersapi.com/\(count)")!)
+                let fact = String(decoding: data, as: UTF8.self)
+//                state.fact = fact   // 🛑 Mutable capture of 'inout' parameter 'state' is not allowed in concurrently-executing code
+            }
         }
     }
 }
