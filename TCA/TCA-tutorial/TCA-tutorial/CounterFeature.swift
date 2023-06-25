@@ -38,7 +38,7 @@ struct CounterFeature: ReducerProtocol {
         switch action {
         case .decrementButtonTapped:
             state.count -= 1
-            return .none   // Effectを実行する必要がないため .none を返す
+            return .none   // Effectを実行する必要がないため .none を返す, Effect: call API etc...
             
         case .incrementButtonTapped:
             state.count += 1
