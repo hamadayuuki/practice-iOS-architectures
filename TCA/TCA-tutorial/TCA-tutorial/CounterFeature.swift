@@ -27,6 +27,7 @@ struct CounterFeature: ReducerProtocol {
         case decrementButtonTapped
         case incrementButtonTapped
         case factButtonTapped
+        case setFact(String)
     }
     
     /*
@@ -46,12 +47,20 @@ struct CounterFeature: ReducerProtocol {
             state.count += 1
             return .none
         
+        // APIからデータを取得する
         case .factButtonTapped:
-            return .run { [count = state.count] _ in
+            return .run { [count = state.count] send in
                 let (data, _) = try await URLSession.shared.data(from: URL(string: "http://numbersapi.com/\(count)")!)
                 let fact = String(decoding: data, as: UTF8.self)
 //                state.fact = fact   // 🛑 Mutable capture of 'inout' parameter 'state' is not allowed in concurrently-executing code
+                await send(.setFact(fact))
             }
+        
+        // データをStateへ反映させる
+        // 反映は Effect(.run) で行えない. 
+        case .setFact(let fact):
+            state.fact = fact
+            return .none
         }
     }
 }
