@@ -15,6 +15,7 @@
 		D431A8F12A48827F00109710 /* TCA_tutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431A8F02A48827F00109710 /* TCA_tutorialUITests.swift */; };
 		D431A8F32A48827F00109710 /* TCA_tutorialUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431A8F22A48827F00109710 /* TCA_tutorialUITestsLaunchTests.swift */; };
 		D431A9012A48869900109710 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = D431A9002A48869900109710 /* ComposableArchitecture */; };
+		D431A9032A48879E00109710 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431A9022A48879E00109710 /* CounterFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		D431A8EC2A48827F00109710 /* TCA-tutorialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TCA-tutorialUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D431A8F02A48827F00109710 /* TCA_tutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_tutorialUITests.swift; sourceTree = "<group>"; };
 		D431A8F22A48827F00109710 /* TCA_tutorialUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_tutorialUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D431A9022A48879E00109710 /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				D431A8D52A48827E00109710 /* TCA_tutorialApp.swift */,
 				D431A8D72A48827E00109710 /* ContentView.swift */,
+				D431A9022A48879E00109710 /* CounterFeature.swift */,
 				D431A8D92A48827F00109710 /* Assets.xcassets */,
 				D431A8DB2A48827F00109710 /* Preview Content */,
 			);
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D431A9032A48879E00109710 /* CounterFeature.swift in Sources */,
 				D431A8D82A48827E00109710 /* ContentView.swift in Sources */,
 				D431A8D62A48827E00109710 /* TCA_tutorialApp.swift in Sources */,
 			);
